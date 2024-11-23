@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h1>Logs</h1>
+        <h4>Server and Server Error Logs</h4>
+        <small>
+        - Тук разработчиците следят логовете</br>
+        </small>
+        </br>  
+
+    <form action="/logs" method="POST">
+            <select id="mycheckbox" name="mycheckbox">
+                <option>server.log</option>
+                <option>server_error.log</option>
+            </select> *тип лог - <small><i>кой файл да бъде визуализиран - server.log или server_error.log</small></i></br>
+            <input type="number" name="mycheckbox" value=100> брой редове <br/> 
+            <input name="mycheckbox"> phrase - <small><i></i>специфична фраза, която се търси; остави празно за целия файл</small></br>
+            <input type="submit" value="Покажи"></br>  
+        </form>
+        <hr>
+        <b>Logs:</b>
+        {{text|safe}}
+    
+        </div>
+    
+        </br></br></br><hr></br>
+    
+{% endblock %}

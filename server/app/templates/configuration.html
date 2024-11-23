@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h1>Configuration</h1>
+        <h4>Manual configuration</h4>
+        <small>
+        - A page for users to input parameters</br>
+        </small>
+        </br>  
+
+    <form action="/configuration" method="POST">
+            <select id="mycheckbox" name="mycheckbox">
+                <option>send test email</option>
+                <option>add email recipient</option>
+            </select> *function - <small><i>function name to be executed</small></i></br>
+            <input type="password" name="mycheckbox" value=''> *password - <small><i>Developer password</small></i></br> 
+            <input type="sop" name="mycheckbox" value=''> *Input parameters to the function - <small><i>Developer password</small></i></br> 
+        <input type="submit" value="Изпълни"></br> 
+        </form>
+    {{ output | safe}}
+    <small>
+        {{tables_1 | safe}}
+    </small>
+    
+{% endblock %}
