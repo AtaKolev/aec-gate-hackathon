@@ -128,6 +128,6 @@ class DataProcessor:
     def get_buildings_with_distance_coeff(self):
         buildings_gdf_simplified = self._load_buildings_file()
         buildings_gdf_simplified = self.fault_processing(buildings_gdf_simplified)
-        buildings_gdf_simplified['distance_coeff'] = 1 - 0.007*buildings_gdf_simplified['min_distance_value']
+        buildings_gdf_simplified['distance_coeff'] = 0.4 - 0.0017*buildings_gdf_simplified['min_distance_value']
 
         return buildings_gdf_simplified
