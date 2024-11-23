@@ -21,6 +21,8 @@ app.dev_mode = False
 app.data_folder = 'data/'
 app.data_files = ['normal_data.csv', 'fault_data.csv']
 app.data_to_check = 'data_to_check.csv'
+data_processer = DataProcessor(seismic_path=r"C:\Users\atana\Downloads\mikroseizm_30_26_sofpr_20090000.geojson",
+                               fault_path=r"C:\Users\atana\Downloads\razlomi_26_sofpr_20090000.geojson")
 
 
 
@@ -170,10 +172,12 @@ def functions():
 @app.route('/visualization', methods = ['GET', 'POST'])
 def cepstrum_visualization():
 
-    title = 'RBD: Цепструм Визуализация'
+    title = '(Project Name): Visualization Page'
     output = ''
     if request.method == 'GET':
-        return render_template('visualization.html', title=title, output=output)
+        map = data_processer.create_seismic_fault_plot()
+        
+        return render_template('visualization.html', title=title, output=output, folium_map = map)
     else:
         output = 'Грешка! Пробвай пак!'
         return render_template('visualization.html', title=title, output=output)
